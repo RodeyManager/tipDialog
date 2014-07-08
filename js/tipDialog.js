@@ -63,9 +63,9 @@ define(['jQuery', 'text!tpl/public/tipDialog.html'], function($, tipDialogHTML){
             },
             lock: opts.lock || true,
             time: opts.time || 'fast',
-            autoClose: opts.autoClose || false,
+            iconPath: opts.iconPath || 'images/icon/',
             closeTime: opts.closeTime || 3000,
-            ZorQ: !!window.jQuery
+            ZorQ: opts.ZorQ || 'jQuery' // 'jQuery' || 'Zepto'
         };
 
         //回调执行
@@ -113,16 +113,16 @@ define(['jQuery', 'text!tpl/public/tipDialog.html'], function($, tipDialogHTML){
         var wh = document.documentElement.clientHeight;
         tipContent.html(opts.msg || '');
         masker.appendChild(tipDialog[0]);
-        tipDialog.css({ left: (ww - tipDialog.outerWidth()) / 2, top: (wh - tipDialog.outerHeight()) / 2 - 50 });
         if(defaults.ZorQ == 'jQuery'){
             tipDialog.stop().fadeIn(defaults.time);
         }else if(defaults.ZorQ == 'Zepto'){
             tipDialog.show();
         }
+        tipDialog.css({ left: (ww - tipDialog.width()) / 2, top: (wh - tipDialog.height()) / 2 - 50 });
 
         //类型定义
         if(defaults.type && defaults.type != ''){
-            tipType.css({ 'backgroundImage': 'url("images/icons/'+ defaults.type +'.png")', 'display': 'block' });
+            tipType.css({ 'backgroundImage': 'url(' + defaults.iconPath + defaults.type +'.png")', 'display': 'block' });
         }
 
         //显示标题
