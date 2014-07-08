@@ -1,0 +1,66 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>移动web日期选择组件</title>
+    <meta http-equiv="Content-Type" content="text/html" charset="utf-8">
+    <meta content="name" charset="Rodey">
+    <meta content="keyword" charset="反馈">
+    <meta content="descriptions" charset="天下通意见反馈管理">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=640,target-densitydpi=320,user-scalable=no"/>
+    <meta name="format-detection" content="telephone=no" />
+    <link rel="stylesheet" href="css/app.css">
+</head>
+<body>
+    <div id="app">
+
+        <input type="text" id="date" readonly class="date-input">
+        <button id="choiesDate" class="date-btn">选择日期</button>
+        <button id="tips" class="date-btn">弹窗提示</button>
+    </div>
+
+<!--载入js-->
+<script src="js/jquery-1.9.1.js"></script>
+<script src="js/jquery.touch.js"></script>
+<script src="js/tipDialog.rom.js"></script>
+<script>
+    $(document).ready(function(){
+
+        var tips = $('#tips');
+
+        tips.on('tap',function(evt){
+            //debugger
+            tipDialog({
+                title: '提示',
+                msg: '这是一个移动web弹窗提示组件',
+                type: 'success',
+                btnOk: {                                             //确认按钮
+                    val: '确认',                                     // 按钮文字
+                    call: function(e, ok){                             // 确认按钮回调函数
+                        console.log(evt)
+                        console.log(this)
+                        console.log(ok)
+                    },
+                    close: false                                     // 触发后是否关闭弹窗（ true: 关闭， false: 保留）
+                },
+                btnCancel:{
+                    val: '关闭',
+                    call: function(e, cancel){
+                        console.log(evt)
+                        console.log(this)
+                        console.log(cancel)
+                    },
+                    close: true
+                },
+                autoClose: true,                                     // 是否自动关闭
+                closeTime: 20000,                                    // 多长时间自动关闭
+                ZorQ: 'jQuery'
+            });
+        });
+
+    });
+</script>
+</body>
+</html>

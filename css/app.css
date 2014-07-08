@@ -1,0 +1,660 @@
+* {
+    margin:0px;
+    padding:0px;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    -webkit-touch-callout:none;
+    outline: none;
+    -webkit-user-select: none;
+    box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+body {
+    font-family: Arial "Microsoft YaHei";
+    background: white;
+    -webkit-user-select:none;
+    -webkit-text-size-adjust:none;
+    width:640px;
+    line-height: 1;
+}
+html, body, div, span, applet, object, iframe, h1, h2, h3, h4, h5, h6, p, blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, em, img, ins, kbd, q, s, samp, small, strike, strong, sub, sup, tt, var, b, u, i, center, dl, dt, dd, ol, ul, li, fieldset, form, label, legend, table, caption, tbody, tfoot, thead, tr, th, td, article, aside, canvas, details, embed, figure, figcaption, footer, header, hgroup, menu, nav, output, ruby, section, summary, time, mark, audio, video {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    text-decoration: none;
+}
+input[type="text"], input[type="password"], input[type="number"], input[type="search"],
+input[type="email"], input[type="url"], input[type="color"], input[type="Date pickers"],
+input[type="range"], select, textarea {
+    -webkit-user-select: text;
+}
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section { display: block;}
+ol, ul { list-style: none;}
+blockquote, q { quotes: none;}
+blockquote:before, blockquote:after, q:before, q:after { content: '';content: none;}
+table { border-collapse: collapse;border-spacing: 0;}
+a:active{text-decoration: none; color: #555;}
+a:hover{text-decoration: none; color: #555;}
+a:link{text-decoration: none; color: #555;}
+.clear{ clear: both; }
+
+/*--App---*/
+#app{
+    width: 100%;
+    height: 100%;
+    background: #F9F9F9;
+    padding: 1px 20px 0px 20px;
+}
+
+
+/*----内容---*/
+.his-list{
+    width: 100%;
+    padding: 20px 0px;
+    margin: 0 auto;
+}
+.his-list-scroll{
+    padding: 0;
+    list-style: none;
+    overflow: hidden;
+    padding-bottom: 300px;
+}
+.his-list-scroll li{
+    display: block;
+    list-style-type: none;
+    text-align: center;
+    margin: 20px auto;
+}
+.his-txt-content{
+    padding: 20px 0px;
+}
+.his-txt-content .his-c-headport{
+    width: 50px;
+    min-height: 50px;
+    float: left;
+}
+.his-txt-content .his-c-headport-a{
+    display: block;
+    width: 104px;
+    height: 104px;
+    text-align: center;
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    position: relative;
+    padding: 5px;
+    background: rgb(255, 255, 255);
+    border: 1px solid rgba(245, 136, 64, 0.5);
+}
+.his-txt-content .his-c-headport-img{
+    display: block;
+    width: 90px;
+    height: 90px;
+    margin: 0 auto;
+    border: none;
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+    background: none;
+}
+.his-txt-content .his-c-text{
+    float: left;
+    position: relative;
+    max-width: 420px;
+    min-height: 60px;
+    margin-left: 80px;
+    padding: 20px;
+    line-height: 40px;
+    font-size: 26px;
+    border-radius: 26px;
+    -o-border-radius: 26px;
+    -ms-border-radius: 26px;
+    -moz-border-radius: 26px;
+    -webkit-border-radius: 26px;
+    z-index: 11;
+    background: rgb(146,209,232);
+}
+.his-txt-content .his-c-text:before{
+    display: block;
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    top: 19px;
+    left: -25px;
+    content: "\25C4";
+    font-size: 40px;
+    z-index: 10;
+    color: rgb(146, 209, 232);
+    /*background: rgb(166, 223, 250);*/
+}
+.his-c-text img{
+    display: block;
+    max-width: 100%!important;
+    height: auto!important;
+    border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    width:expression(this.width > 400 ? "400px" : this.width)!important;
+    height:expression(this.height < 40 ? "50px" : this.height)!important;
+}
+.his-content{
+    background: #FFFCF7;
+    border: solid 1px #C8C8C8;
+    border-radius: 20px;
+    -o-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -webkit-border-radius: 20px;
+    padding: 20px 20px 0px;
+    box-shadow: 0px 1px 3px 1px rgba(200, 200, 200, 0.8);
+}
+.his-c-toper{
+    position: relative;
+    background: #FFF;
+    background-clip: padding-box;
+    margin-bottom: 20px;
+}
+.his-c-toper .his-c-toper-img{
+    display: block;
+    background: #FFE4C4;
+    width: 556px;
+    height: 320px;
+}
+.his-c-toper .his-c-toper-title{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    /*height: 120px;*/
+    text-decoration: none;
+    font-size: 33px;
+    font-weight: normal;
+    word-wrap: break-word;
+    line-height: 50px;
+    color: #FFF;
+    background: rgba(50, 50, 50, 0.7);
+    padding: 10px 20px;
+    text-align: left;
+ }
+.his-c-btmer{
+    margin: 20px -20px 0px -20px;
+    border-top: solid 1px #C8C8C8;
+    min-height: 120px;
+    padding: 20px 0px 0px;
+}
+.his-c-btmer-oneImg{
+    margin: 20px -20px 0px -20px;
+    border-top: solid 1px #C8C8C8;
+    height: 80px;
+    padding: 20px 0px 0px;
+}
+.his-c-btmer-oneImg .his-c-list-oneImg-imga{
+    font-size: 30px;
+    color: rgb(85, 85, 85);
+    height: 80px;
+    line-height: 40px;
+}
+.his-c-btmer .his-c-btmer-imga{
+    display: block;
+    width: 100px;
+    height: 100px;
+    float: left;
+    vertical-align: middle;
+}
+.his-c-one-btmer{
+    margin: 20px -20px 0px -20px;
+    border-top: solid 1px #C8C8C8;
+    max-height: 80px;
+    padding: 0px;
+    text-align: center;
+}
+.his-c-one-btmer .his-c-btmer-one-a{
+    font-size: 30px;
+    text-align: center;
+    display: block;
+    width: 100%;
+    max-height: 80px;
+    line-height: 80px;
+    position: relative;
+}
+.his-c-one-btmer .his-c-btmer-one-a:after{
+    display: block;
+    position: absolute;
+    right: 20px;
+    top: 0px;
+    content: "》";
+    font-size: 30px;
+    color: rgb(210, 210, 210);
+}
+.his-c-btmer .his-c-btmer-img{
+    display: block;
+    width: 100px;
+    height: 100px;
+    border: none;
+    vertical-align: middle;
+}
+.his-c-btmer .his-c-btmer-title{
+    float: right;
+    font-size: 26px;
+    font-weight: normal;
+    line-height: 40px;
+    width: 430px;
+    text-align: left;
+    margin-top: 10px;
+    vertical-align: middle;
+    color: #555;
+}
+.his-c-btmer .his-c-list{
+    height: 120px;
+    padding: 0px 20px;
+    border-bottom: solid 1px #C8C8C8;
+    margin: 20px auto;
+}
+.his-c-btmer .his-c-list:last{
+    border: none;
+}
+.his-c-btmer .his-c-list-last{
+    border: none;
+}
+.his-list-date{
+    line-height: 80px;
+    text-align: center;
+    color: #FFF;
+    padding: 10px 30px;
+    background: rgba(140, 140, 140, 0.3);
+    border-radius: 25px;
+    -o-border-radius: 25px;
+    -ms-border-radius: 25px;
+    -moz-border-radius: 25px;
+    -webkit-border-radius: 25px;
+    margin: 10px auto;
+    font-size: 26px;
+}
+
+/*---加载相关---*/
+.loading-list{
+    font-size: 26px;
+    font-weight: normal;
+    letter-spacing: 0px;
+    color: #AAA;
+}
+.loading-icon,
+.loading-page{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    position: relative;
+    top: 500px;
+}
+.loading-icon{ top: 0px; }
+.loading-icon .icon,
+.loading-page .icon{
+    display: inline-block;
+    height: 50px;
+    width: 50px;
+    vertical-align: middle;
+    background: url(../images/5-121204193R5-50.gif) no-repeat center center;
+}
+.loading-icon .txt,
+.loading-page .txt{
+    display: inline-block;
+    vertical-align: middle;
+    font-size: 26px;
+    letter-spacing: 0px;
+    color: #AAA;
+}
+
+
+
+/*-----拉取加载插件-----*/
+.loadData-canvas{
+    display: block;
+    margin: 0 auto;
+}
+
+
+/*-----滚动插件-----*/
+.APPSlider-con{
+    position: relative;
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+}
+.APPSlider-ul-con{
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+.APPSlider-ul-con li{
+    list-style-type: none;
+    display: block;
+    width: auto;
+    float: left;
+}
+.APPSlider-ul-con li a{
+    display: block;
+    width: 100%;
+    height: 100%;
+    cursor: default;
+}
+.APPSlider-btns-con{
+    text-align: center;
+    width: 100%;
+    margin: 0 auto;
+    position: absolute;
+    bottom: 30px;
+    left: 0px;
+}
+.APPSlider-btns-con span.APPSlider-btns{
+    text-align: center;
+    display: inline-block;
+    font-size: 16px;
+    width: 16px;
+    height: 16px;
+    margin: 0 3px;
+    line-height: 32px;
+    color: rgb(255, 255, 255);
+    background: rgb(31, 171, 236);
+    border-radius: 50%;
+    -o-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -webkit-border-radius: 50%;
+}
+.APPSlider-btns-con span.on{
+    background: #FFF;
+    color: black;
+}
+
+
+/*---搜索框相关---*/
+.APPSearch-con{
+    position: relative;
+    padding: 10px;
+    background: rgb(230, 230, 230);
+}
+.APPSearch-con .app-searchKey{
+    position: relative;
+    display: inline-block;
+    border: none;
+    outline: none;
+    -webkie-border: none;
+    -webkit-appearance: none;
+    background: rgb(255, 255, 255);
+    padding: 5px;
+    margin: 0 auto;
+    width: 100%;
+    height: 30px;
+    /*line-height: 30px;*/
+    font-size: 14px;
+    font-family: sans-serif,"microsoft yahei";
+    text-indent: 50%;
+    text-align: left;
+    vertical-align: middle;
+    border-radius: 5px;
+    -o-border-radius: 5px;
+    -ms-border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+}
+.APPSearch-con:after{
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: url("data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAYAAAAf8/9hAAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAALEgAACxIB0t1+/AAAABx0RVh0U29mdHdhcmUAQWRvYmUgRmlyZXdvcmtzIENTNAay06AAAAFrSURBVDiNldK9alRhFIXhZxQHfxIRB5H41wWs7EVOxsCgjWAhXoOFYCvsC9goViFFQOz0CixiI6Q4BNFAiPaiRMEIFhkRNBgYi3MCZ8ZMQlbzVevd69t7tQaDgaYycxpddPANSxHxxRi1dgCZOYWnuIWP2MQZXMBzPIiIn7sCavMbfMX9iHjfSHQNC9jGTET8agIO1e8zbKDXNENELGMGE3g0muBwu92+jDncHvfXoij+lGX5GY/LspwvimKrmaCLTxGxupu5oVf4i6ujX+jg+z5mEbGNHzg9CtjAxcxs7QXIzKM4i/VRwGtMYXafEHfxG2tDgIhYxwssZGZnzPRLeIL50TPu9GASSziJh1iMiK3MPI47qvOdwwpuRMTmEKCecgKJexioany+jj2nulYX72pIfwjQiHsK13FEteAPEdGvByyqSvUWNyOi/x9gL2XmMbxET7XM3oEANWRCVaormD0woIZMYjoiVv8Bjm2SMacTJ0YAAAAASUVORK5CYII=") no-repeat left center;
+}
+.APPSearch-con .app-csearch-btn{
+    display: inline-block;
+    background: none;
+    border: none;
+    outline: none;
+    -webkie-border: none;
+    -webkit-appearance: none;
+    font-size: 16px;
+    font-family: "microsoft yahei";
+    color: rgb(135, 135, 135);
+    width: 18%;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    vertical-align: middle;
+}
+
+
+
+/*---弹窗提示相关---*/
+.tipDialogMasker{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.3);
+}
+.tipDialog-00{
+    display: none;
+    width: 460px;
+    max-height: 500px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    font-size: 16px;
+    /*box-shadow: 0px 2px 3px 0px #A0A0A0;*/
+    text-shadow: 1px 1px 1px #FFF;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 20px 20px 0px 20px;
+    text-align: center;
+    border-radius: 18px;
+}
+.tipDialog-00 .close{ display:none; }
+.tipDialog-00 .tipType{
+    display: none; width:64px;height:64px;margin:0 auto;
+    background-image: url("../images/icons/success.png");
+    background-repeat: no-repeat;
+    background-position: left top;
+}
+.tipDialog-00 .tipTitle{
+    height: 60px;
+    display: none;
+    line-height: 60px;
+    font-size: 30px;
+    font-weight: 600;
+}
+.tipDialog-00 .tipContent{
+    color: #555;
+    font-size: 26px;
+    font-weight: normal;
+    width: 100%;
+    word-wrap: break-word;
+    word-break: break-all;
+    line-height: 40px;
+    padding: 10px 0px;
+}
+.tipDialog-00 .tipBtns{
+    margin: 20px -20px 0px -20px;
+    border-top: solid 1px #CCC;
+    height: 60px;
+    line-height: 60px;
+    width: 460px;
+}
+.tipDialog-00 .tipBtns span{
+    display: inline-block;
+    height: 80px;
+    line-height: 80px;
+    font-size: 36px;
+    font-weight: 600;
+    color: #1FABEC;
+    width: 230px;
+    float: left;
+}
+.tipDialog-00 .tipBtns span:hover{
+    background: rgba(220,220,220,.6);
+}
+.tipDialog-00 .tipBtns span.btnOk{
+    width: 230px;
+    /*border-right:solid 1px #CCC;*/
+}
+.tipDialog-00 .tipBtns span.btnCancel{
+    float: left;
+}
+.tipDialog-00 .tipBtns span.btmRRadius{
+    border-bottom-right-radius: 18px;
+    -webkit-border-bottom-right-radius: 18px;
+    -moz-border-radius-bottomright: 18px;
+    -o-border-bottom-right-radius: 18px;
+    -ms-border-bottom-right-radius: 18px;
+}
+.tipDialog-00 .tipBtns span.btmLRadius{
+    border-bottom-left-radius: 18px;
+    -webkit-border-bottom-left-radius: 18px;
+    -moz-border-radius-bottomleft: 18px;
+    -o-border-bottom-left-radius: 18px;
+    -ms-border-bottom-left-radius: 18px;
+}
+.tipDialog-00 .tipBtns span.btmRadius{
+    border-bottom-left-radius: 18px;
+    border-bottom-right-radius: 18px;
+    -webkit-border-bottom-left-radius: 18px;
+    -webkit-border-bottom-right-radius: 18px;
+    -moz-border-radius-bottomleft: 18px;
+    -moz-border-radius-bottomright: 18px;
+    -o-border-bottom-left-radius: 18px;
+    -o-border-bottom-right-radius: 18px;
+    -ms-border-bottom-left-radius: 18px;
+    -ms-border-bottom-right-radius: 18px;
+}
+
+
+/*----日期选择组件----*/
+.app-dateField-main{
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    width: 640px;
+    height: 430px;
+    border-top: solid 1px rgba(200, 200, 200, 0.8);
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0px -1px 3px 0px rgba(220, 220, 220, 0.6);
+}
+.app-dateField-top{
+    height: 80px;
+    border-bottom: solid 1px rgba(248, 248, 248, 0.5);
+    background: rgba(252, 252, 252, 1);
+}
+.app-dateField-top span{
+    display: inline-block;
+    width: 120px;
+    height: 80px;
+    line-height: 80px;
+    font-size: 28px;
+    text-align: center;
+    color: #333;
+    background: rgba(252, 252, 252, 1);
+    position: relative;
+}
+.app-dateField-top span:hover,
+.app-dateField-top span:active{
+    color: #111;
+    background: rgba(240, 240, 240, 0.6);
+}
+.app-dateField-top .app-dateField-btnCancel{
+    float: left;
+    margin-left: 20px;
+}
+.app-dateField-top .app-dateField-btnOk{
+    float: right;
+    margin-right: 20px;
+}
+.app-dateField-top .app-dateField-btnCancel:after,
+.app-dateField-top .app-dateField-btnOk:after{
+    display: inline-block;
+    width: 60px;
+    height: 2px;
+    position: absolute;
+    bottom: 10px;
+    left: 30px;
+    content: "";
+    background: rgba(240,240,240, .8);
+}
+.app-dateField-center{
+    position: relative;
+    height: 350px;
+    overflow: hidden;
+    -webkit-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1) ,rgba(0,0,0,0));
+    -moz-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1) ,rgba(0,0,0,0));
+    -ms-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1) ,rgba(0,0,0,0));
+    -o-mask-image: -webkit-linear-gradient(top, rgba(0,0,0,0), rgba(0,0,0,1) ,rgba(0,0,0,0));
+}
+.app-dateField-center ul {
+    padding:0px;
+    margin:0px;
+    /*float: left;*/
+    position: absolute;
+}
+.app-dateField-center ul li{
+    color: rgb(50, 50, 50);
+    /*display: block;*/
+    height: 50px;
+    line-height: 50px;
+    font-size: 32px;
+    font-weight: normal;
+    text-align: center;
+}
+.app-dateField-center .app-center-current{
+    /*position: absolute;
+    top: 150px;
+    left: 0px;*/
+    margin-top: 150px;
+    height: 50px;
+    width: 100%;
+    border: solid 1px rgba(200,200,200,0.8);
+    border-width: 1px 0px;
+}
+.app-dateField-bottom {
+    clear: both;
+}
+
+
+
+.date-input{
+    display: block;
+    width: 90%;
+    height: 80px;
+    line-height: 80px;
+    margin: 0px auto;
+    padding: 10px;
+    font-size: 50px;
+    color: rgb(0, 214, 255);
+    text-align: center;
+    border: solid 1px rgb(221, 221, 221);
+    box-shadow: inset 2px 2px 3px 1px rgba(240, 240, 240, 0.7);
+}
+.date-btn{
+    display: block;
+    padding: 16px 20px;
+    border: none;
+    border-radius: 10px;
+    margin: 20px auto;
+    font-size: 30px;
+    background: rgb(105, 221, 221);
+    color: rgb(255, 255, 255);
+}
+
+
+
+
+
+
+
+
